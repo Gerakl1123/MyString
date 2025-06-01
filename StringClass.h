@@ -37,10 +37,12 @@ public:
 
     //Methods
     const char* getCh() const { return ch; }
-    const char* setCh(char* temp) {
-        this->ch = temp; 
-        return ch; 
-    }
+       void setCh(const char* temp) {
+       delete[] ch;
+       SizeA = strlen(temp) + 1;
+       ch = new char[SizeA];
+       strcpy_s(ch, SizeA, temp);
+   }
     //Destryctor
     ~MyString()
     {
